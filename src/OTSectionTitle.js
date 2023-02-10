@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import OTTypography from './OTTypography';
-import { SIZES } from './constants';
 
 // ----------------------------------------------------------------------
+
+const SIZES = {
+  small: 'small',
+  medium: 'medium',
+  large: 'large',
+};
 
 const propTypes = {
   /**
@@ -30,7 +35,7 @@ const propTypes = {
 };
 
 const Container = styled.View`
-  align-items: ${props =>
+  align-items: ${(props) =>
     props.align === 'center'
       ? props.align
       : props.align === 'right'
@@ -41,8 +46,8 @@ const Highlight = styled.View`
   margin-top: 2px;
   margin-left: 1px;
   height: 2px;
-  width: ${props => (props.size === SIZES.large ? 74 : 50)}px;
-  background-color: ${props => props.color || props.theme.colors.orange};
+  width: ${(props) => (props.size === SIZES.large ? 74 : 50)}px;
+  background-color: ${(props) => props.color || props.theme.colors.orange};
 `;
 
 const OTSectionTitle = ({ title, titleColor, highlightColor, align, size }) => {
@@ -51,7 +56,8 @@ const OTSectionTitle = ({ title, titleColor, highlightColor, align, size }) => {
       <OTTypography
         variant={size === SIZES.large ? 'headlineMedium' : 'titleLarge'}
         family={'bold'}
-        color={titleColor}>
+        color={titleColor}
+      >
         {title}
       </OTTypography>
       <Highlight color={highlightColor} size={size} />

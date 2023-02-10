@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import { SIZES } from './constants';
 
 // ----------------------------------------------------------------------
+
+const SIZES = {
+  small: 'small',
+  medium: 'medium',
+  large: 'large',
+};
 
 const propTypes = {
   /**
@@ -25,18 +30,18 @@ const propTypes = {
 };
 
 const Container = styled.View`
-  background-color: ${props => props.bgColor || props.theme.colors.orange};
-  border-radius: ${props => (props.rounded ? 10 : 4)}px;
-  width: ${props =>
+  background-color: ${(props) => props.bgColor || props.theme.colors.orange};
+  border-radius: ${(props) => (props.rounded ? 10 : 4)}px;
+  width: ${(props) =>
     props.size === SIZES.large ? 58 : props.size === SIZES.small ? 38 : 48}px;
-  height: ${props =>
+  height: ${(props) =>
     props.size === SIZES.large ? 58 : props.size === SIZES.small ? 38 : 48}px;
   justify-content: center;
   align-items: center;
 `;
 const Icon = styled.Image`
-  width: ${props => (props.size === SIZES.large ? 30 : 20)}px;
-  height: ${props => (props.size === SIZES.large ? 30 : 20)}px;
+  width: ${(props) => (props.size === SIZES.large ? 30 : 20)}px;
+  height: ${(props) => (props.size === SIZES.large ? 30 : 20)}px;
 `;
 
 const OTIconTag = ({ bgColor, rounded, size, icon }) => {

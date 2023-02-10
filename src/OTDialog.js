@@ -3,7 +3,7 @@ import { Modal } from 'react-native';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { Dimensions } from 'react-native';
-import closeImg from '../assets/modal/close.png';
+import closeImg from './assets/modal/close.png';
 
 const windowWidth = Dimensions.get('window').width - 10;
 const windowHeight = Dimensions.get('window').height;
@@ -27,11 +27,11 @@ const Container = styled.View`
   flex: 1
   justify-content: center
   align-items: center
-  background-color: ${props => props.theme.colors.modal.background}
+  background-color: ${(props) => props.theme.colors.modal.background}
 `;
 
 const Background = styled.View`
-  width: ${props => windowWidth - props.theme.padding.horizontal * 2}px;
+  width: ${(props) => windowWidth - props.theme.padding.horizontal * 2}px;
   justify-content: flex-start
   background-color: #fff
   padding-bottom: 20px

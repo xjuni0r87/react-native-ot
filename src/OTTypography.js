@@ -4,27 +4,6 @@ import styled from 'styled-components/native';
 
 // ----------------------------------------------------------------------
 
-const VARIANTS = {
-  headlineLarge: 'headlineLarge',
-  headlineMedium: 'headlineMedium',
-  headlineSmall: 'headlineSmall',
-  titleLarge: 'titleLarge',
-  titleMedium: 'titleMedium',
-  titleSmall: 'titleSmall',
-  paragraphLarge: 'paragraphLarge',
-  paragraphMedium: 'paragraphMedium',
-  paragraphSmall: 'paragraphSmall',
-  captionLarge: 'captionLarge',
-  captionMedium: 'captionMedium',
-  captionSmall: 'captionSmall',
-};
-
-const FAMILIES = {
-  regular: 'regular',
-  medium: 'medium',
-  bold: 'bold',
-};
-
 const propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.number,
@@ -34,23 +13,24 @@ const propTypes = {
   ]),
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   variant: PropTypes.oneOf([
-    VARIANTS.headlineLarge,
-    VARIANTS.headlineMedium,
-    VARIANTS.headlineSmall,
-    VARIANTS.titleLarge,
-    VARIANTS.titleMedium,
-    VARIANTS.titleSmall,
-    VARIANTS.paragraphLarge,
-    VARIANTS.paragraphMedium,
-    VARIANTS.paragraphSmall,
-    VARIANTS.captionLarge,
-    VARIANTS.captionMedium,
-    VARIANTS.captionSmall,
+    'headlineLarge',
+    'headlineMedium',
+    'headlineSmall',
+    'titleLarge',
+    'titleMedium',
+    'titleSmall',
+    'paragraphLarge',
+    'paragraphMedium',
+    'paragraphSmall',
+    'captionLarge',
+    'captionMedium',
+    'captionSmall',
   ]),
-  family: PropTypes.oneOf([FAMILIES.regular, FAMILIES.medium, FAMILIES.bold]),
+  family: PropTypes.oneOf(['regular', 'medium', 'bold']),
   lineHeight: PropTypes.number,
   capitalize: PropTypes.bool,
   color: PropTypes.string,
+  fontSize: PropTypes.number,
 };
 
 const Title = styled.Text`
@@ -98,8 +78,8 @@ const OTTypography = ({
 OTTypography.propTypes = propTypes;
 
 OTTypography.defaultProps = {
-  variant: VARIANTS.paragraphLarge,
-  family: FAMILIES.regular,
+  variant: 'paragraphLarge',
+  family: 'regular',
   capitalize: false,
 };
 

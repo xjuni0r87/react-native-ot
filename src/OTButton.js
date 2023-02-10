@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import OTTypography from './OTTypography';
-import { BUTTON, SIZES } from './constants';
 
 // ----------------------------------------------------------------------
 
@@ -14,11 +13,11 @@ const propTypes = {
   /**
    * Variant of the OTButton
    */
-  variant: PropTypes.oneOf([BUTTON.VARIANTS.contained, BUTTON.VARIANTS.text]),
+  variant: PropTypes.oneOf(['contained', 'text']),
   /**
    * Size of the OTButton
    */
-  size: PropTypes.oneOf([SIZES.medium, SIZES.large]),
+  size: PropTypes.oneOf(['medium', 'large']),
   /**
    * Color to display as background color for the OTButton (only for contained variant)
    */
@@ -54,32 +53,33 @@ const propTypes = {
 };
 
 const Container = styled.TouchableOpacity`
-  background-color: ${props => props.color || props.theme.colors.button.orange};
+  background-color: ${(props) =>
+    props.color || props.theme.colors.button.orange};
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center
-  padding-vertical: ${props => (props.size === SIZES.large ? 16 : 10)}px
+  padding-vertical: ${(props) => (props.size === 'large' ? 16 : 10)}px
   padding-horizontal: 26px
   border-radius: 8px
-  ${props =>
-    (props.width || props.size === SIZES.large) &&
+  ${(props) =>
+    (props.width || props.size === 'large') &&
     `width:  ${props.width ? props.width : 226}px`}
 `;
 const TitleButton = styled(OTTypography)`
-  color: ${props => props.titleColor || props.theme.colors.button.white};
+  color: ${(props) => props.titleColor || props.theme.colors.button.white};
 `;
 const TextContainer = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-vertical: ${props => (props.size === SIZES.large ? 16 : 10)}px;
+  padding-vertical: ${(props) => (props.size === 'large' ? 16 : 10)}px;
   padding-horizontal: 10px;
 `;
 const Icon = styled.Image`
-  margin-left: ${props => (props.iconPosition === 'end' ? 6 : 0)}px;
-  margin-right: ${props => (props.iconPosition === 'start' ? 6 : 0)}px;
+  margin-left: ${(props) => (props.iconPosition === 'end' ? 6 : 0)}px;
+  margin-right: ${(props) => (props.iconPosition === 'start' ? 6 : 0)}px;
 `;
 
 const OTButton = ({
@@ -99,7 +99,7 @@ const OTButton = ({
     <Icon iconPosition={iconPosition} style={iconStyle} source={icon} />
   );
 
-  if (variant === BUTTON.VARIANTS.contained) {
+  if (variant === 'contained') {
     return (
       <Container
         style={style}
@@ -107,28 +107,32 @@ const OTButton = ({
         color={color}
         size={size}
         activeOpacity={0.6} // default is .2
-        onPress={onPress}>
+        onPress={onPress}
+      >
         {icon && iconPosition === 'start' && renderIcon()}
         <TitleButton
-          variant={size === SIZES.large ? 'titleLarge' : 'paragraphLarge'}
+          variant={size === 'large' ? 'titleLarge' : 'paragraphLarge'}
           family={'bold'}
-          titleColor={titleColor}>
+          titleColor={titleColor}
+        >
           {title || ''}
         </TitleButton>
         {icon && iconPosition === 'end' && renderIcon()}
       </Container>
     );
-  } else if (variant === BUTTON.VARIANTS.text) {
+  } else if (variant === 'text') {
     return (
       <TextContainer
         style={style}
         activeOpacity={0.6} // default is .2
-        onPress={onPress}>
+        onPress={onPress}
+      >
         {icon && iconPosition === 'start' && renderIcon()}
         <TitleButton
-          variant={size === SIZES.large ? 'titleLarge' : 'paragraphLarge'}
+          variant={size === 'large' ? 'titleLarge' : 'paragraphLarge'}
           family={'bold'}
-          titleColor={titleColor}>
+          titleColor={titleColor}
+        >
           {title || ''}
         </TitleButton>
         {icon && iconPosition === 'end' && renderIcon()}
@@ -145,8 +149,8 @@ OTButton.propTypes = propTypes;
 
 OTButton.defaultProps = {
   style: {},
-  variant: BUTTON.VARIANTS.contained,
-  size: SIZES.medium,
+  variant: 'contained',
+  size: 'medium',
   iconPosition: 'end',
   iconStyle: {},
 };

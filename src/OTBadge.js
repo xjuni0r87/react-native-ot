@@ -7,6 +7,10 @@ import OTTypography from './OTTypography';
 
 const propTypes = {
   /**
+   * Style to display for the OTBadge
+   */
+  style: PropTypes.object,
+  /**
    * Title to display for the OTBadge
    */
   title: PropTypes.string,
