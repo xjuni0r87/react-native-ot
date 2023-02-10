@@ -1,7 +1,12 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-ot';
+import {
+  multiply,
+  OTBadge,
+  OTTypography,
+  ThemeProvider,
+} from 'react-native-ot';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
@@ -11,9 +16,13 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <ThemeProvider>
+      <View style={styles.container}>
+        <Text>Result: {result}</Text>
+        <OTTypography variant="headlineSmall">Hello World</OTTypography>
+        <OTBadge title="100" />
+      </View>
+    </ThemeProvider>
   );
 }
 
