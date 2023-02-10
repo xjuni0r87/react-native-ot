@@ -26,12 +26,12 @@ const propTypes = {
 
 const Container = styled.View`
   border-radius: 4px;
-  background-color: ${props => props.bgColor};
-  ${props => !props.hideShadows && 'elevation: 3'}
-  ${props => !props.hideShadows && 'shadowColor: #000'}
-  ${props => !props.hideShadows && 'shadowOffset: 0px 3px'}
-  ${props => !props.hideShadows && 'shadowOpacity: 0.2'}
-  ${props => !props.hideShadows && 'shadowRadius: 3px'}
+  background-color: ${(props) => props.bgColor};
+  ${(props) => !props.hideShadows && 'elevation: 3'}
+  ${(props) => !props.hideShadows && 'shadowColor: #000'}
+  ${(props) => !props.hideShadows && 'shadowOffset: 0px 3px'}
+  ${(props) => !props.hideShadows && 'shadowOpacity: 0.2'}
+  ${(props) => !props.hideShadows && 'shadowRadius: 3px'}
 `;
 const OpaqueLayer = styled.View`
   position: absolute;
