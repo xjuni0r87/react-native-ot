@@ -27,14 +27,14 @@ const propTypes = {
 
 const Container = styled.TouchableOpacity`
   flex-direction: row;
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.selected ? props.theme.colors.orange : props.theme.colors.white};
   border-radius: 45px;
   padding-horizontal: 20px;
   height: 45px;
   justify-content: center;
   align-items: center;
-  elevation: ${props => (props.selected ? 0 : 3)};
+  elevation: ${(props) => (props.selected ? 0 : 3)};
 `;
 const Icon = styled.Image`
   width: 30px;
@@ -51,7 +51,8 @@ const OTChipButton = ({ selected, onPress, icon, text }) => {
       <OTTypography
         variant="titleSmall"
         family="bold"
-        color={selected ? theme.colors.font.white : theme.colors.font.blue}>
+        color={selected ? theme.colors.font.white : theme.colors.font.blue}
+      >
         {text}
       </OTTypography>
     </Container>

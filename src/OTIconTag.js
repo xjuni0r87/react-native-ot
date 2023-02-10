@@ -39,7 +39,8 @@ const OTIconTag = ({ title, titleColor, icon }) => {
       <OTTypography
         variant={'paragraphMedium'}
         family={'medium'}
-        color={titleColor || theme.colors.font.white}>
+        color={titleColor || theme.colors.font.white}
+      >
         {title}
       </OTTypography>
     </Container>

@@ -29,16 +29,16 @@ const BackgroundLine = styled.View`
   position: absolute;
   width: 100%;
   height: 1px;
-  background-color: ${props => props.theme.colors.line};
+  background-color: ${(props) => props.theme.colors.line};
   left: 0;
   top: 6px;
   z-index: 2;
 `;
 const BackgroundSelectedLine = styled.View`
   position: absolute;
-  width: ${props => props.length}%;
+  width: ${(props) => props.length}%;
   height: 1px;
-  background-color: ${props => props.theme.colors.font.blue};
+  background-color: ${(props) => props.theme.colors.font.blue};
   left: 0;
   top: 6px;
   z-index: 2;
@@ -48,7 +48,7 @@ const Dot = styled.View`
   justify-content: center;
   border-radius: 12px;
   border: 1px solid
-    ${props =>
+    ${(props) =>
       props.done
         ? props.theme.colors.font.blue
         : props.current
@@ -56,7 +56,7 @@ const Dot = styled.View`
         : props.theme.colors.line};
   width: 12px;
   height: 12px;
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.done ? props.theme.colors.font.blue : props.theme.colors.white};
   z-index: 4;
 `;
@@ -93,7 +93,8 @@ const OTProgressBar = ({ dotsNumber, value }) => {
         <OTTypography
           variant={'titleSmall'}
           family={'bold'}
-          color={theme.colors.font.blue}>
+          color={theme.colors.font.blue}
+        >
           {`${value}/${dotsNumber}`}
         </OTTypography>
       </LabelContainer>
